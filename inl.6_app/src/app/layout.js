@@ -1,4 +1,7 @@
+
+// Layout-komponent som används i next.js ramverk
 export default function Layout({ children }) {
+  // Definerar HTML-strukturen som sidan ska ha
   return (
     <html lang="en">
       <head>
