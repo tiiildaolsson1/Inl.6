@@ -4,8 +4,8 @@ import MovieList from './movielist';
 function Page() {
   return (
     <div className="container mt-5">
-      <h1>Movie list</h1>
-      <h2>Movie</h2>
+      <h1>Filmlista</h1>
+      <h2 className='mb-4'>filmer som jag sett!</h2>
       <MovieList />
     </div>
   );
