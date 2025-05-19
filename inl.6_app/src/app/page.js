@@ -1,14 +1,14 @@
 import React from 'react';
 import MovieList from './movielist';
 
-function App() {
+function Page() {
   return (
-    <>
-      <h1>Movie list </h1>
+    <div className="container mt-5">
+      <h1>Movie list</h1>
       <h2>Movie</h2>
-      < MovieList />
-    </>
+      <MovieList />
+    </div>
   );
 }
 
-export default App;
+export default Page;

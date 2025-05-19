@@ -2,12 +2,7 @@ export default function Layout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-ENjdO4Dr2bkBIFxQpeo4A6VKHrj10uAeR4l2FZCpiF2iqJkV0p5V5tKQ1a6XqAOp"
-          crossOrigin="anonymous"
-        />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossOrigin="anonymous"></link>
       </head>
       <body>{children}</body>
     </html>
