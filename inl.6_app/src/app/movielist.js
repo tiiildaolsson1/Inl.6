@@ -10,43 +10,48 @@ export default function MovieList() {
     const titleRef = useRef();
     const ratingRef = useRef ();
 
-    function addMovie(event) {
-        if (event.keyCode === 13) {
-            
-            // hämtar title och rating
-            const title = titleRef.current.value.trim();
-            const rating = ratingRef.current.value;
-    
-            // Validation så båda fälten är i fyllda innan film läggs till
+function addMovie(event) {
+    if (event.keyCode === 13) {
+        
+        // hämtar title och rating
+        const title = titleRef.current.value.trim();
+        const rating = ratingRef.current.value;
 
-            if (title === "" && (rating === "" || rating === "0")) {
-                window.alert("Du måste ange en titel och ett betyg för att spara filmen");
-                return;
-            }
+        // Validation så båda fälten är i fyllda innan film läggs till
 
-            if (title === "") {
-                window.alert("Du måste ange en titel för att spara filmen");
-                return;
-            }
-
-            if (rating === "" || rating === "0") {
-                window.alert("Du måste ange ett betyg för att spara filmen");
-                return;
-            }
-
-    
-            const newId = movies.length > 0 ? movies[movies.length - 1].id + 1 : 1;
-            // lägger till den nya filmen i listan
-            setMovies([...movies, { id: newId, title: title, rating: rating }]);
-            setNextId(prevId => prevId + 1);
-            
-            //tömmer input fälten
-            titleRef.current.value = "";
-            ratingRef.current.value = "";
+        if (title === "" && (rating === "" || rating === "0")) {
+            window.alert("Du måste ange en titel och ett betyg för att spara filmen");
+            return;
         }
-    }
-    
 
+        if (title === "") {
+            window.alert("Du måste ange en titel för att spara filmen");
+            return;
+        }
+
+        if (rating === "" || rating === "0") {
+            window.alert("Du måste ange ett betyg för att spara filmen");
+            return;
+        }
+
+        // Hittar det högsta id:t i listan och lägger till 1
+        let highestId = 0;
+        for (let i = 0; i < movies.length; i++) {
+            if (movies[i].id > highestId) {
+                highestId = movies[i].id;
+            }
+        }
+        const newId = highestId + 1;
+
+        setMovies([...movies, { id: newId, title: title, rating: rating }]);
+        setNextId(prevId => prevId + 1);
+
+        //tömmer input fälten
+        titleRef.current.value = "";
+        ratingRef.current.value = "";
+    }
+}
+    
     function deleteMovie(id) {
         setMovies(movies.filter(movie => movie.id !== id));
     }
